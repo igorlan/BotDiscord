@@ -9,7 +9,7 @@ const Discord = require('discord.js'),
     };
 
     const PORT = process.env.PORT || 5000
-    .listen(process.env.PORT || 5000)
+    .listen(process.env.PORT)
 
 // Create a new DisTube
 const distube = new DisTube(client, { searchSongs: false, emitNewSongOnly: true });
