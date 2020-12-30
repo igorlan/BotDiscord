@@ -11,13 +11,7 @@ const Discord = require('discord.js'),
         token: process.env.TOKEN
     };
 
-    var server = http.createServer((req, res) => {
-        //your stuff
-      });
-      
-      server.listen(process.env.PORT || 5050, () => {
-        console.log("Listening on port 80");
-      });
+
 
 // Create a new DisTube
 const distube = new DisTube(client, { searchSongs: false, emitNewSongOnly: true });
