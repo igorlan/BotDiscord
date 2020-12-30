@@ -1,0 +1,20 @@
+{
+  "name": "AdolfHitler",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node bot.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "@discordjs/opus": "^0.3.3",
+    "discord-player": "^3.2.0",
+    "discord.js": "^12.5.1",
+    "distube": "^2.8.8",
+    "ffmpeg-static": "^4.2.7"
+  }
+}
