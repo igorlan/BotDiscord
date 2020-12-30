@@ -1,7 +1,5 @@
 require('dotenv').config();
 
-
-
 // DisTube example bot, definitions, properties and events details in the Documentation page.
 const Discord = require('discord.js'),
     DisTube = require('distube'),
@@ -10,8 +8,6 @@ const Discord = require('discord.js'),
         prefix: "!",
         token: process.env.TOKEN
     };
-
-
 
 // Create a new DisTube
 const distube = new DisTube(client, { searchSongs: false, emitNewSongOnly: true });
