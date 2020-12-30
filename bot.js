@@ -1,4 +1,11 @@
 require('dotenv').config();
+
+var server_port = process.env.YOUR_PORT || process.env.PORT || 5000;
+var server_host = process.env.YOUR_HOST || '0.0.0.0';
+server.listen(server_port, server_host, function() {
+    console.log('Listening on port %d', server_port);
+});
+
 // DisTube example bot, definitions, properties and events details in the Documentation page.
 const Discord = require('discord.js'),
     DisTube = require('distube'),
@@ -10,6 +17,7 @@ const Discord = require('discord.js'),
 
     const PORT = process.env.PORT || 5000
     .listen(process.env.PORT)
+
 
 // Create a new DisTube
 const distube = new DisTube(client, { searchSongs: false, emitNewSongOnly: true });
