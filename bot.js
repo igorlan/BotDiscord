@@ -35,11 +35,7 @@ client.on("message", async (message) => {
 
   if (command == "loop") distube.setRepeatMode(message, parseInt(args[0]));
 
-  if(command == "parar")distube.pause(message);
-  message.channel.send("Musica pausada, !reproduzir para voltar a tocar");
-
-  if(command == "reproduzir") distube.resume(message)
-  message.channel.send("Música retornada!");
+  if(command =="parar")distube.pause(message);
 
   if (command == "stop") {
     distube.stop(message);
@@ -91,8 +87,9 @@ client.on("message", async (message) => {
   }
   
   if(command === "pijas"){
-        giphy.id("xUn3ClY96QtTHGMl6U")
-        .then(res => {
+     try {
+            giphy.id("xUn3ClY96QtTHGMl6U")
+        .then( async (res) => {
             await message.reply("É o PIJAS", {
              files: [`${res.data.image_url}`],
            });
@@ -106,6 +103,15 @@ client.on("message", async (message) => {
             ${err}
             `);
         })
+     } catch (error) {
+         message.channel.send(`
+            ### Deu ruim sua mula
+
+            ---
+
+            ${error}
+            `);
+     }
   }
   // gif
    if (command === "gif") {
