@@ -37,6 +37,11 @@ client.on("message", async (message) => {
         message.channel.send("Parei esse lixo");
     }
 
+    if (command == "ajuda")
+    message.channel.send("`Comandos: "
+    "teste"
+    );
+
     if (command == "repeat") {
         let mode = distube.setRepeatMode(message, parseInt(args[0]));
         mode = mode ? mode == 2 ? "Repetindo a lista" : "Repetindo a musica" : "Off";
@@ -86,7 +91,7 @@ client.on("message", async (message) => {
 });
 
 // Queue status template
-const status = (queue) => `Volume: \`${queue.volume}%\` | Filter: \`${queue.filter || "Off"}\` | Loop: \`${queue.repeatMode ? queue.repeatMode == 2 ? "All Queue" : "This Song" : "Off"}\` | Autoplay: \`${queue.autoplay ? "On" : "Off"}\``;
+const status = (queue) => `Volume: \`${queue.volume}%\` | Filtro: \`${queue.filter || "Off"}\` | Loop: \`${queue.repeatMode ? queue.repeatMode == 2 ? "All Queue" : "This Song" : "Off"}\` | Autoplay: \`${queue.autoplay ? "On" : "Off"}\``;
 
 // DisTube event listeners, more in the documentation page
 distube
