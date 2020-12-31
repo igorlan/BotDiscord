@@ -14,7 +14,7 @@ const Discord = require('discord.js'),
 const distube = new DisTube(client, { searchSongs: false, emitNewSongOnly: true });
 
 client.on('ready', () => {
-    console.log(`Logged in as ${client.user.tag}!`);
+    console.log(`Logado como ${client.user.tag}!`);
 });
 
 client.on("message", async (message) => {
@@ -34,13 +34,13 @@ client.on("message", async (message) => {
 
     if (command == "stop") {
         distube.stop(message);
-        message.channel.send("Stopped the music!");
+        message.channel.send("Parei esse lixo");
     }
 
     if (command == "repeat") {
         let mode = distube.setRepeatMode(message, parseInt(args[0]));
-        mode = mode ? mode == 2 ? "Repeat queue" : "Repeat song" : "Off";
-        message.channel.send("Set repeat mode to `" + mode + "`");
+        mode = mode ? mode == 2 ? "Repetindo a lista" : "Repetindo a musica" : "Off";
+        message.channel.send("Setando o modo de repetição para `" + mode + "`");
     }
     if (command == "autoplay") {
         let mode = distube.toggleAutoplay(message);
@@ -63,7 +63,7 @@ client.on("message", async (message) => {
 
     if (["queue", "playlist"].includes(command)) {
         let queue = distube.getQueue(message);
-        message.channel.send('Current queue:\n' + queue.songs.map((song, id) =>
+        message.channel.send('Lista de Reprodução:\n' + queue.songs.map((song, id) =>
             `**${id + 1}**. ${song.name} - \`${song.formattedDuration}\``
         ).slice(0, 10).join("\n"));
     }
@@ -78,10 +78,10 @@ client.on("message", async (message) => {
 
     if ([`3d`, `bassboost`, `echo`, `karaoke`, `nightcore`, `vaporwave`,`surround`].includes(command)) {
         let filter = distube.setFilter(message, command);
-        message.channel.send("Current queue filter: " + (filter || "Off"));        
+        message.channel.send("Filtro Atual: " + (filter || "Off"));        
     }
 
-    distube.on("empty", message => message.channel.send("Channel is empty. Leaving the channel"))
+    distube.on("empty", message => message.channel.send("Canal está vazio, falo"))
     
 });
 
@@ -91,16 +91,16 @@ const status = (queue) => `Volume: \`${queue.volume}%\` | Filter: \`${queue.filt
 // DisTube event listeners, more in the documentation page
 distube
     .on("playSong", (message, queue, song) => message.channel.send(
-        `Playing \`${song.name}\` - \`${song.formattedDuration}\`\nRequested by: ${song.user}\n${status(queue)}`
+        `Tocando \`${song.name}\` - \`${song.formattedDuration}\`\nAdicionado por: ${song.user}\n${status(queue)}`
     ))
     .on("addSong", (message, queue, song) => message.channel.send(
-        `Added ${song.name} - \`${song.formattedDuration}\` to the queue by ${song.user}`
+        `Adicionado ${song.name} - \`${song.formattedDuration}\` para a lista por ${song.user}`
     ))
     .on("playList", (message, queue, playlist, song) => message.channel.send(
-        `Play \`${playlist.name}\` playlist (${playlist.songs.length} songs).\nRequested by: ${song.user}\nNow playing \`${song.name}\` - \`${song.formattedDuration}\`\n${status(queue)}`
+        `Play \`${playlist.name}\` playlist (${playlist.songs.length} musicas).\nAdicionado por: ${song.user}\nReproduzindo agora \`${song.name}\` - \`${song.formattedDuration}\`\n${status(queue)}`
     ))
     .on("addList", (message, queue, playlist) => message.channel.send(
-        `Added \`${playlist.name}\` playlist (${playlist.songs.length} songs) to queue\n${status(queue)}`
+        `Adicionado \`${playlist.name}\` playlist (${playlist.songs.length} songs) para a lista\n${status(queue)}`
     ))
     // DisTubeOptions.searchSongs = true
     .on("searchResult", (message, result) => {
@@ -108,10 +108,10 @@ distube
         message.channel.send(`**Choose an option from below**\n${result.map(song => `**${++i}**. ${song.name} - \`${song.formattedDuration}\``).join("\n")}\n*Enter anything else or wait 60 seconds to cancel*`);
     })
     // DisTubeOptions.searchSongs = true
-    .on("searchCancel", (message) => message.channel.send(`Searching canceled`))
+    .on("searchCancel", (message) => message.channel.send(`Pesquisa cancelada`))
     .on("error", (message, e) => {
         console.error(e)
-        message.channel.send("An error encountered: " + e);
+        message.channel.send("Um erro foi encontrado: " + e);
     });
 
 
