@@ -1,5 +1,8 @@
 require('dotenv').config();
 
+var express = require('express');
+var app = express();
+
 // DisTube example bot, definitions, properties and events details in the Documentation page.
 const Discord = require('discord.js'),
     DisTube = require('distube'),
@@ -8,6 +11,7 @@ const Discord = require('discord.js'),
         prefix: "!",
         token: process.env.TOKEN
     };
+    
 
 // Create a new DisTube
 const distube = new DisTube(client, { searchSongs: false, emitNewSongOnly: true });
@@ -111,6 +115,10 @@ distube
     .on("error", (message, e) => {
         console.error(e)
         message.channel.send("An error encountered: " + e);
+    });
+
+    app.listen(3000, function () {
+        console.log('Example app listening on port 3000!');
     });
 
 client.login(config.token);
