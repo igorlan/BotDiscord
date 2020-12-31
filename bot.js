@@ -50,11 +50,12 @@ client.on("message", async (message) => {
     message.channel.send("Parei esse lixo");
   }
 
-  if(command == "avancar")
+  if(command == "avancar"){
     // const numb = message.match(/\d/g)
     console.log("avancar: ", message, Number(args[0]));
     distube.seek(message, Number(args[0]));
       message.channel.send(`Música avançada em ${Number(args[0])}.`);
+  }
   
 
   if (command == "repeat") {
