@@ -51,15 +51,15 @@ client.on("message", async (message) => {
 
   if (["tocaesselixoae", "play"].includes(command))
 
-  // for( let i = 0; i < neverPlaysThisSongs; i ++ ){
-  //   if (neverPlaysThisSongs[i] == args.join(" ")) {
-  //     message.channel.send(
-  //       "Só tocamos musica boa aqui.",
-  //     );
-  //     distube.stop(message);
-  //   }
-  //   return;
-  // }
+  for( let i = 0; i < neverPlaysThisSongs; i ++ ){
+    if (neverPlaysThisSongs[i] == args.join(" ")) {
+      message.channel.send(
+        "Só tocamos musica boa aqui.",
+      );
+      distube.stop(message);
+    }
+    return;
+  }
     distube.play(message, args.join(" "));
 
   if (command == "loop") distube.setRepeatMode(message, parseInt(args[0]));
