@@ -51,9 +51,9 @@ client.on("message", async (message) => {
   }
 
   if(command == "avancar"){
-      distube.seek(message);
-      const numb = message.content.match(/\d/g)
-      message.channel.send(`Música avançada em ${numb}.`);
+    const numb = message.match(/\d/g)
+    distube.seek(message, Number(args[0]));
+      message.channel.send(`Música avançada em ${Number(args[0])}.`);
   }
 
   if (command == "repeat") {
