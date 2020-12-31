@@ -41,11 +41,11 @@ client.on("message", async (message) => {
   const args = message.content.slice(config.prefix.length).trim().split(/ +/g);
   const command = args.shift();
 
-  const toUpperMsg = message.content.toUpperCase();
-  if (contains(toUpperMsg, neverPlaysThisSongs)) {
-    message.channel.send("TA PROIBIDO KAPOPI PORRA");
-    return;
-  }
+  // const toUpperMsg = message.content.toUpperCase();
+  // if (contains(toUpperMsg, neverPlaysThisSongs)) {
+  //   message.channel.send("TA PROIBIDO KAPOPI PORRA");
+  //   return;
+  // }
 
   if (command == "jump") distube.jump(message, parseInt(args[0]));
 
