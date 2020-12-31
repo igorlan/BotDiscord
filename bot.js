@@ -35,7 +35,11 @@ client.on("message", async (message) => {
 
   if (command == "loop") distube.setRepeatMode(message, parseInt(args[0]));
 
-  if(command =="parar")distube.pause(message);
+  if(command == "parar")distube.pause(message);
+  message.channel.send("Musica pausada, !reproduzir para voltar a tocar");
+
+  if(command == "reproduzir") distube.resume(message)
+  message.channel.send("Música retornada!");
 
   if (command == "stop") {
     distube.stop(message);
