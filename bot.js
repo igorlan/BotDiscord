@@ -50,6 +50,12 @@ client.on("message", async (message) => {
   if (command == "jump") distube.jump(message, parseInt(args[0]));
 
   if (["tocaesselixoae", "play"].includes(command))
+  console.log('play: ', message);
+  // for( let i = 0; i < neverPlaysThisSongs; i ++ ){
+  //   if(  ){
+
+  //   }
+  // }
     distube.play(message, args.join(" "));
 
   if (command == "loop") distube.setRepeatMode(message, parseInt(args[0]));
