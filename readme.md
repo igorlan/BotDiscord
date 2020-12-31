@@ -37,6 +37,15 @@ Para de tocar as musicas
 !stop
 ```
 
+Pausa a musicas
+```
+!pausar
+```
+
+Retoma  a musicas
+```
+!retomar
+```
 ---
 
 ## Docker
