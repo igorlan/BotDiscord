@@ -41,7 +41,7 @@ client.on("message", async (message) => {
   const args = message.content.slice(config.prefix.length).trim().split(/ +/g);
   const command = args.shift();
 
-  // const toUpperMsg = message.content.toUpperCase();
+  const toUpperMsg = message.content.toUpperCase();
   // if (contains(toUpperMsg, neverPlaysThisSongs)) {
   //   message.channel.send("TA PROIBIDO KAPOPI PORRA");
   //   return;
@@ -52,10 +52,8 @@ client.on("message", async (message) => {
   if (["tocaesselixoae", "play"].includes(command))
 
   for( let i = 0; i < neverPlaysThisSongs; i ++ ){
-    if (neverPlaysThisSongs[i] == args.join(" ")) {
-      message.channel.send(
-        "Só tocamos musica boa aqui.",
-      );
+    if (neverPlaysThisSongs[i] == toUpperMsg) {
+      message.channel.send("Só tocamos musica boa aqui.");
       distube.stop(message);
     }
     return;
