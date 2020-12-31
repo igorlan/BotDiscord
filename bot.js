@@ -1,7 +1,10 @@
 require('dotenv').config();
 
-var express = require('express');
-var app = express();
+const express = require('express');
+const http = require("http");
+const app = express();
+
+http.createServer(express).listen(5000, () => console.log("Servidor rodando local na porta 3000"));
 
 // DisTube example bot, definitions, properties and events details in the Documentation page.
 const Discord = require('discord.js'),
@@ -120,5 +123,7 @@ distube
     app.listen(3000, function () {
         console.log('Example app listening on port 3000!');
     });
+
+    http.createServer(express).listen(5000, () => console.log("Servidor rodando local na porta 3000"));
 
 client.login(config.token);
