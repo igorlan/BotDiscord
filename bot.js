@@ -57,7 +57,7 @@ client.on("message", async (message) => {
         message.channel.send("Novo volume: " + ( args[0] )+"%");
         return;
         }else{
-            message.channel.send("Volume tem que ser abixo de 101 sua mula fdp");
+            message.channel.send("Volume tem que ser abixo de 100 sua mula fdp");
         }
     } 
 
