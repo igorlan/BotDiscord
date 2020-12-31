@@ -51,6 +51,7 @@ client.on("message", async (message) => {
 
   if (["tocaesselixoae", "play"].includes(command))
   console.log('play: ', message);
+  console.log("args", args.join(" "));
   // for( let i = 0; i < neverPlaysThisSongs; i ++ ){
   //   if(  ){
 
