@@ -78,6 +78,7 @@ client.on("message", async (message) => {
     distube.skip(message);
     message.channel.send("`Musica skipada`");
   }
+
   if (command == "volume") {
     if (args[0] <= 100) {
       distube.setVolume(message, args[0]);
@@ -105,6 +106,7 @@ client.on("message", async (message) => {
      const author =  message.author.username
      message.reply(` ${author} sa mãe`)
    }
+
      if (command === "pijas") {
        try {
          giphy
@@ -133,6 +135,7 @@ client.on("message", async (message) => {
             `);
        }
      }
+
   // gif
    if (command === "gif") {
      const messageForGifSearch = message.content.replace("!gif", "");
@@ -171,6 +174,7 @@ client.on("message", async (message) => {
       **
       `);
    }
+   // end
 });
 
 client.on("message", (message) => {
