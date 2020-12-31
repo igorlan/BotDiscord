@@ -53,7 +53,7 @@ client.on("message", async (message) => {
   if(command == "avancar"){
     // const numb = message.match(/\d/g)
     console.log("avancar: ", message, Number(args[0]));
-    distube.seek(message, Number(args[0]));
+    // distube.seek(message, Number(args[0]));
       message.channel.send(`Música avançada em ${Number(args[0])}.`);
   }
 
@@ -152,6 +152,23 @@ client.on("message", async (message) => {
          }
        },
      );
+   }
+   if (command === "help") {
+     message.channel.send(`
+      Comandos de Musica
+      **
+        !play
+        !stop
+        !skip
+        !playlist
+        !pausar
+        !retomar
+      **
+      Comandos Gifs
+      **
+        !gif <-nome do gif->
+      **
+      `);
    }
 });
 
