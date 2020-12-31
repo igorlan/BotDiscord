@@ -50,6 +50,11 @@ client.on("message", async (message) => {
     message.channel.send("Parei esse lixo");
   }
 
+  if(command == "avançar"){
+      distube.seek(message);
+      message.channel.send(`Música avançada em ${message}.`);
+  }
+
   if (command == "repeat") {
     let mode = distube.setRepeatMode(message, parseInt(args[0]));
     mode = mode
