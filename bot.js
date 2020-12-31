@@ -18,6 +18,19 @@ const distube = new DisTube(client, {
   emitNewSongOnly: true,
 });
 
+const neverPlaysThisSongs = [
+  "BTS",
+  "KPOP",
+  "K POP",
+  "EXO",
+  "BLACKPINK",
+  "BLACK PINK",
+  "SEVEN TEEN",
+  "TWICE",
+  "RED VEVELT",
+  "REDVEVELT",
+];
+
 client.on("ready", () => {
   console.log(`Logado como ${client.user.tag}!`);
 });
@@ -27,6 +40,12 @@ client.on("message", async (message) => {
   if (!message.content.startsWith(config.prefix)) return;
   const args = message.content.slice(config.prefix.length).trim().split(/ +/g);
   const command = args.shift();
+
+  const toUpperMsg = message.content.toUpperCase();
+  if (contains(toUpperMsg, neverPlaysThisSongs)) {
+    message.channel.send("TA PROIBIDO KAPOPI PORRA");
+    return;
+  }
 
   if (command == "jump") distube.jump(message, parseInt(args[0]));
 
