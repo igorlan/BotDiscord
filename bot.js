@@ -35,8 +35,7 @@ client.on("message", async (message) => {
     if (command == "stop") {
         distube.stop(message);
         message.channel.send("Parei esse lixo");
-    }
-  
+    }  
 
     if (command == "repeat") {
         let mode = distube.setRepeatMode(message, parseInt(args[0]));
