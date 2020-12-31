@@ -1,7 +1,6 @@
 require("dotenv").config();
 
-import { Grid } from "@giphy/react-components";
-import { GiphyFetch } from "@giphy/js-fetch-api";
+
 const Discord = require("discord.js"),
   DisTube = require("distube"),
   client = new Discord.Client(),
@@ -10,7 +9,8 @@ const Discord = require("discord.js"),
     token: process.env.TOKEN,
   };
 
-const gf = new GiphyFetch(process.env.giphy);
+const giphy = require("giphy-api")(process.env.giphy);
+
 
 // Create a new DisTube
 const distube = new DisTube(client, {
@@ -84,6 +84,9 @@ client.on("message", async (message) => {
     );
   }
   
+  if(command === "pijas"){
+
+  }
   // gif
    if (command === "gif") {
      const messageForGifSearch = message.content.replace("!gif", "");
