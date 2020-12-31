@@ -93,25 +93,29 @@ client.on("message", async (message) => {
           .join("\n"),
     );
   }
-  
-  if(command === "pijas"){
-     try {
-            giphy.id("xUn3ClY96QtTHGMl6U")
-        .then( async (res) => {
-            await message.reply("É o PIJAS", {
-             files: [`${res.data.image_url}`],
-           });
-        })
-        .catch(err => {
-            message.channel.send(`
+   if (command === "samae"){
+     const author =  message.author.username
+     message.reply(` ${author} sa mãe`)
+   }
+     if (command === "pijas") {
+       try {
+         giphy
+           .id("xUn3ClY96QtTHGMl6U")
+           .then(async (res) => {
+             await message.reply("É o PIJAS", {
+               files: [`${res.data.image_url}`],
+             });
+           })
+           .catch((err) => {
+             message.channel.send(`
             ### Deu ruim sua mula
 
             ---
 
             ${err}
             `);
-        })
-     } catch (error) {
+           });
+       } catch (error) {
          message.channel.send(`
             ### Deu ruim sua mula
 
@@ -119,8 +123,8 @@ client.on("message", async (message) => {
 
             ${error}
             `);
+       }
      }
-  }
   // gif
    if (command === "gif") {
      const messageForGifSearch = message.content.replace("!gif", "");
