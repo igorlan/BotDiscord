@@ -38,9 +38,9 @@ client.on("message", async (message) => {
   if(command =="pausar")distube.pause(message);
   message.channel.send("Musica pausada, para retomar a música use o comando !retomar");
 
-  if(command == "retomar").distube.resume(message)
+  if(command == "retomar")distube.resume(message)
     message.channel.send("Musica retomada.")
-    
+
   if (command == "stop") {
     distube.stop(message);
     message.channel.send("Parei esse lixo");
