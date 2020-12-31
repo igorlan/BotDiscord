@@ -85,7 +85,21 @@ client.on("message", async (message) => {
   }
   
   if(command === "pijas"){
+        giphy.id("xUn3ClY96QtTHGMl6U")
+        .then(res => {
+            await message.reply("É o PIJAS", {
+             files: [`${res.data.image_url}`],
+           });
+        })
+        .catch(err => {
+            message.channel.send(`
+            ### Deu ruim sua mula
 
+            ---
+
+            ${err}
+            `);
+        })
   }
   // gif
    if (command === "gif") {
