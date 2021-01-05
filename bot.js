@@ -125,7 +125,10 @@ client.on("message", async (message) => {
   }
    if (command === "samae"){
      const author =  message.author.username
-     message.reply(` ${author} sa mãe`)
+     if ( message.author.username == 'Igor' ){
+       message.reply(` @Igor sa mãe`);
+     }
+        message.reply(` ${author} sa mãe`)
    }
 
      if (command === "pijas") {
